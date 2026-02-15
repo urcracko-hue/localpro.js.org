@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - LocalPro</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="admin-body">
+    <!-- Admin Login -->
+    <div class="admin-login" id="adminLogin">
+        <div class="login-container">
+            <div class="login-header">
+                <span class="admin-icon">🔐</span>
+                <h1>Admin Panel</h1>
+                <p>Enter passcode to access the admin panel</p>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="passcode">Passcode</label>
+                    <input type="password" id="passcode" name="passcode" 
+                           placeholder="Enter admin passcode" required>
+                    <span class="error-message" id="passcodeError"></span>
+                </div>
+                <button type="submit" class="login-btn">
+                    Unlock Panel
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div class="admin-dashboard" id="adminDashboard" style="display: none;">
+        <!-- Admin Navigation -->
+        <nav class="admin-navbar">
+            <div class="admin-nav-container">
+                <a href="/" class="nav-logo">
+                    <span class="logo-icon">🔧</span>
+                    <span class="logo-text">LocalPro</span>
+                    <span class="admin-badge">Admin</span>
+                </a>
+                <div class="admin-nav-menu">
+                    <button class="admin-nav-btn active" data-tab="dashboard">📊 Dashboard</button>
+                    <button class="admin-nav-btn" data-tab="freelancers">👥 Freelancers</button>
+                    <button class="admin-nav-btn logout" id="logoutBtn">🚪 Logout</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Dashboard Tab -->
+        <div class="admin-tab" id="dashboardTab">
+            <div class="admin-container">
+                <h2 class="admin-title">Dashboard Overview</h2>
+                
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="totalCount">0</span>
+                            <span class="stat-label">Total Professionals</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="activeCount">0</span>
+                            <span class="stat-label">Active Profiles</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🔒</div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="verifiedCount">0</span>
+                            <span class="stat-label">Verified</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="recentCount">0</span>
+                            <span class="stat-label">This Week</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="charts-section">
+                    <div class="chart-card">
+                        <h3>Top Professions</h3>
+                        <div class="chart-content" id="professionChart">
+                            <!-- Will be populated dynamically -->
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Top Cities</h3>
+                        <div class="chart-content" id="cityChart">
+                            <!-- Will be populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Freelancers Tab -->
+        <div class="admin-tab" id="freelancersTab" style="display: none;">
+            <div class="admin-container">
+                <h2 class="admin-title">Manage Professionals</h2>
+
+                <!-- Filters -->
+                <div class="admin-filters">
+                    <div class="filter-group">
+                        <input type="text" id="searchInput" placeholder="Search by name, phone, city...">
+                    </div>
+                    <div class="filter-group">
+                        <select id="statusFilter">
+                            <option value="all">All Status</option>
+                            <option value="active">Active Only</option>
+                            <option value="inactive">Inactive Only</option>
+                            <option value="verified">Verified Only</option>
+                            <option value="unverified">Unverified Only</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <select id="professionFilter">
+                            <option value="all">All Professions</option>
+                        </select>
+                    </div>
+                    <button class="filter-btn" id="applyFilters">Apply Filters</button>
+                </div>
+
+                <!-- Freelancers Table -->
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Profile</th>
+                                <th>Name</th>
+                                <th>Profession</th>
+                                <th>Phone</th>
+                                <th>Location</th>
+                                <th>Rate/hr</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="freelancersTableBody">
+                            <!-- Will be populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="admin-pagination" id="adminPagination">
+                    <button class="page-btn" id="adminPrevPage">← Previous</button>
+                    <span class="page-info" id="adminPageInfo">Page 1 of 1</span>
+                    <button class="page-btn" id="adminNextPage">Next →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirm Modal -->
+    <div class="modal" id="confirmModal">
+        <div class="modal-content confirm-modal">
+            <h3 id="confirmTitle">Confirm Action</h3>
+            <p id="confirmMessage">Are you sure you want to perform this action?</p>
+            <div class="modal-actions">
+                <button class="modal-btn secondary" id="confirmCancel">Cancel</button>
+                <button class="modal-btn danger" id="confirmOk">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/admin.js"></script>
+</body>
+</html>

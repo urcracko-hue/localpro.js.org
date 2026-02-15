@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Professionals - LocalPro</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <span class="logo-icon">🔧</span>
+                <span class="logo-text">LocalPro</span>
+            </a>
+            <div class="nav-menu">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/search" class="nav-link active">Find Professionals</a>
+                <a href="/register" class="nav-link">Join as Professional</a>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-header">
+                <h1>Find Local Professionals</h1>
+                <p>Search for verified service providers in your area</p>
+            </div>
+
+            <!-- Search Filters -->
+            <div class="search-filters">
+                <div class="filter-group">
+                    <label>Profession</label>
+                    <select id="professionFilter">
+                        <option value="all">All Professions</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Your Location</label>
+                    <button class="location-btn" id="getLocationBtn">
+                        <span class="location-icon">📍</span>
+                        <span id="locationStatus">Detect Location</span>
+                    </button>
+                </div>
+                <div class="filter-group">
+                    <label>Radius</label>
+                    <select id="radiusFilter">
+                        <option value="5">5 km</option>
+                        <option value="10" selected>10 km</option>
+                        <option value="20">20 km</option>
+                        <option value="50">50 km</option>
+                        <option value="100">Any distance</option>
+                    </select>
+                </div>
+                <button class="search-btn" id="searchBtn">
+                    🔍 Search
+                </button>
+            </div>
+
+            <!-- Location Info -->
+            <div class="location-info" id="locationInfo" style="display: none;">
+                <span class="location-badge">
+                    📍 Searching near: <span id="currentLocation"></span>
+                </span>
+            </div>
+
+            <!-- Results Count -->
+            <div class="results-info" id="resultsInfo">
+                <span id="resultsCount">Loading...</span>
+            </div>
+
+            <!-- Category Quick Filters -->
+            <div class="category-filters" id="categoryFilters">
+                <!-- Will be populated dynamically -->
+            </div>
+
+            <!-- Results Grid -->
+            <div class="results-grid" id="resultsGrid">
+                <!-- Loading State -->
+                <div class="loading-state" id="loadingState">
+                    <div class="loader"></div>
+                    <p>Finding professionals near you...</p>
+                </div>
+            </div>
+
+            <!-- No Results -->
+            <div class="no-results" id="noResults" style="display: none;">
+                <div class="no-results-icon">🔍</div>
+                <h3>No professionals found</h3>
+                <p>Try adjusting your filters or increasing the search radius</p>
+                <button class="reset-btn" id="resetFilters">Reset Filters</button>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination" style="display: none;">
+                <button class="page-btn prev" id="prevPage">← Previous</button>
+                <span class="page-info" id="pageInfo">Page 1 of 1</span>
+                <button class="page-btn next" id="nextPage">Next →</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Freelancer Detail Modal -->
+    <div class="modal" id="freelancerModal">
+        <div class="modal-content freelancer-detail-modal">
+            <button class="modal-close" id="closeModal">×</button>
+            <div class="freelancer-detail" id="freelancerDetail">
+                <!-- Content will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/search.js"></script>
+</body>
+</html>

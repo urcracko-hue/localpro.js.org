@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register as Professional - LocalPro</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <span class="logo-icon">🔧</span>
+                <span class="logo-text">LocalPro</span>
+            </a>
+            <div class="nav-menu">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/search" class="nav-link">Find Professionals</a>
+                <a href="/register" class="nav-link active">Join as Professional</a>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Registration Form -->
+    <section class="register-section">
+        <div class="container">
+            <div class="register-container">
+                <div class="register-header">
+                    <h1>Join as a Professional</h1>
+                    <p>Create your profile and start getting local job opportunities</p>
+                </div>
+
+                <form id="registerForm" class="register-form">
+                    <!-- Profile Preview -->
+                    <div class="profile-preview">
+                        <div class="avatar-preview" id="avatarPreview">
+                            <span class="avatar-placeholder">👤</span>
+                        </div>
+                        <p class="avatar-note">Profile picture will be auto-assigned based on your profession</p>
+                    </div>
+
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" name="fullName" 
+                               placeholder="Enter your full name" 
+                               minlength="2" maxlength="100" required>
+                        <span class="error-message" id="fullNameError"></span>
+                    </div>
+
+                    <!-- Profession -->
+                    <div class="form-group">
+                        <label for="profession">Select Your Profession *</label>
+                        <select id="profession" name="profession" required>
+                            <option value="">Choose your profession...</option>
+                        </select>
+                        <span class="error-message" id="professionError"></span>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone Number *</label>
+                        <div class="phone-input">
+                            <span class="country-code">+91</span>
+                            <input type="tel" id="phoneNumber" name="phoneNumber" 
+                                   placeholder="10-digit mobile number"
+                                   pattern="[6-9][0-9]{9}" maxlength="10" required>
+                        </div>
+                        <span class="helper-text">One profile per phone number</span>
+                        <span class="error-message" id="phoneNumberError"></span>
+                    </div>
+
+                    <!-- Location -->
+                    <div class="form-group">
+                        <label>Location *</label>
+                        <div class="location-inputs">
+                            <input type="text" id="city" name="city" 
+                                   placeholder="City" required>
+                            <input type="text" id="area" name="area" 
+                                   placeholder="Area / Locality" required>
+                        </div>
+                        <button type="button" class="detect-location-btn" id="detectLocation">
+                            📍 Detect My Location
+                        </button>
+                        <div class="coordinates-display" id="coordinatesDisplay" style="display: none;">
+                            <small>📍 Location detected: <span id="coordsText"></span></small>
+                        </div>
+                        <input type="hidden" id="latitude" name="latitude">
+                        <input type="hidden" id="longitude" name="longitude">
+                        <span class="error-message" id="locationError"></span>
+                    </div>
+
+                    <!-- Experience -->
+                    <div class="form-group">
+                        <label for="experience">Experience (in years) *</label>
+                        <input type="number" id="experience" name="experience" 
+                               placeholder="Years of experience"
+                               min="0" max="50" required>
+                        <span class="error-message" id="experienceError"></span>
+                    </div>
+
+                    <!-- Rupees per Hour -->
+                    <div class="form-group">
+                        <label for="rupeesPerHour">Rate per Hour (₹) *</label>
+                        <div class="rate-input">
+                            <span class="currency">₹</span>
+                            <input type="number" id="rupeesPerHour" name="rupeesPerHour" 
+                                   placeholder="Your hourly rate"
+                                   min="50" max="1000" required>
+                            <span class="per-hour">/hour</span>
+                        </div>
+                        <span class="helper-text">Minimum ₹50, Maximum ₹1000 per hour</span>
+                        <span class="error-message" id="rupeesPerHourError"></span>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span class="btn-text">Register Now</span>
+                        <span class="btn-loader" style="display: none;">
+                            <span class="spinner"></span> Registering...
+                        </span>
+                    </button>
+
+                    <p class="form-note">
+                        By registering, you agree that this platform is for offline/local services only.
+                        You will be contacted directly by customers for service requests.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content success-modal">
+            <div class="success-icon">✅</div>
+            <h2>Registration Successful!</h2>
+            <p>Your profile has been created successfully. Customers in your area can now find and contact you.</p>
+            <div class="modal-actions">
+                <a href="/" class="modal-btn secondary">Go to Home</a>
+                <a href="/search" class="modal-btn primary">View Professionals</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/register.js"></script>
+</body>
+</html>

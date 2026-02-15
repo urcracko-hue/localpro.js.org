@@ -1,0 +1,27 @@
+{
+  "name": "local-freelancer-platform",
+  "version": "1.0.0",
+  "description": "A web-based freelancing platform for local/offline services",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "freelancer",
+    "local-services",
+    "offline-jobs"
+  ],
+  "author": "Local Services Platform",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0",
+    "express-validator": "^7.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

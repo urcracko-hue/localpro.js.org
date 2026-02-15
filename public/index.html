@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalPro - Find Local Professionals Near You</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <span class="logo-icon">🔧</span>
+                <span class="logo-text">LocalPro</span>
+            </a>
+            <div class="nav-menu">
+                <a href="/" class="nav-link active">Home</a>
+                <a href="/search" class="nav-link">Find Professionals</a>
+                <a href="/register" class="nav-link">Join as Professional</a>
+                <a href="/admin" class="nav-link admin-link">Admin</a>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Find Trusted Local
+                <span class="highlight">Professionals</span>
+                Near You
+            </h1>
+            <p class="hero-subtitle">
+                Connect with verified electricians, plumbers, tutors, and 40+ other professionals in your area. 
+                Get the job done by skilled local experts.
+            </p>
+            <div class="hero-search">
+                <div class="search-box">
+                    <select id="professionSelect" class="search-select">
+                        <option value="">Select a service...</option>
+                    </select>
+                    <button class="search-location-btn" id="getLocationBtn">
+                        <span class="location-icon">📍</span>
+                        <span class="location-text">Detect Location</span>
+                    </button>
+                    <button class="search-btn" id="searchBtn">
+                        Find Professionals
+                    </button>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" id="totalProfessionals">500+</span>
+                    <span class="stat-label">Professionals</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">40+</span>
+                    <span class="stat-label">Services</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Cities</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="floating-cards">
+                <div class="floating-card card-1">
+                    <span class="card-icon">⚡</span>
+                    <span class="card-text">Electrician</span>
+                </div>
+                <div class="floating-card card-2">
+                    <span class="card-icon">🔧</span>
+                    <span class="card-text">Plumber</span>
+                </div>
+                <div class="floating-card card-3">
+                    <span class="card-icon">📚</span>
+                    <span class="card-text">Tutor</span>
+                </div>
+                <div class="floating-card card-4">
+                    <span class="card-icon">🎨</span>
+                    <span class="card-text">Painter</span>
+                </div>
+                <div class="floating-card card-5">
+                    <span class="card-icon">🪚</span>
+                    <span class="card-text">Carpenter</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <h2 class="section-title">Popular Services</h2>
+            <p class="section-subtitle">Choose from 40+ professional services available in your area</p>
+            <div class="categories-grid" id="categoriesGrid">
+                <!-- Categories will be loaded dynamically -->
+            </div>
+            <a href="/search" class="view-all-btn">View All Services →</a>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">🔍</div>
+                    <h3>Search</h3>
+                    <p>Search for the service you need and share your location</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">👨‍🔧</div>
+                    <h3>Find</h3>
+                    <p>Browse verified professionals near you with ratings and pricing</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">📞</div>
+                    <h3>Connect</h3>
+                    <p>Contact the professional directly and get your job done</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Are You a Skilled Professional?</h2>
+                <p>Join thousands of professionals on LocalPro and get discovered by customers in your area</p>
+                <a href="/register" class="cta-btn">Register Now - It's Free!</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">🔧</span>
+                    <span class="logo-text">LocalPro</span>
+                    <p>Connecting you with trusted local professionals for all your service needs.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="/search">Find Professionals</a>
+                    <a href="/register">Join as Professional</a>
+                    <a href="#categories">Services</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>📧 support@localpro.com</p>
+                    <p>📞 +91 1234567890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LocalPro. All rights reserved.</p>
+                <p class="offline-notice">⚠️ This platform is for offline/local services only</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
